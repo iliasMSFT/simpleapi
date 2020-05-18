@@ -17,4 +17,4 @@ stages:
            Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
            tags: |
              $(Build.BuildId)
-             Latest
+             latest
