@@ -12,7 +12,7 @@ stages:
        - task: Docker@2
          inputs:
            containerRegistry: 'cicdacr'
-           repository: 'modernapi'
+           repository: 'simpleapi'
            command: 'buildAndPush'
            Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
            tags: |
