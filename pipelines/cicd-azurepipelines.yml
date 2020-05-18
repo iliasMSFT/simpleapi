@@ -2,20 +2,19 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
-
+  vmImage: 'windows-2019'
 stages:
-  - stage: 'Build'
-    displayName: 'Build simpleapi app docker image'
-    jobs:
-     - job: Build
-       steps:
-        - task: Docker@2
-          inputs:
+- stage: 'Build'
+  displayName: 'Build the simpleapi docker image'
+  jobs:
+   - job: Build
+     steps:
+       - task: Docker@2
+         inputs:
            containerRegistry: 'cicdacr'
-           repository: 'simpleapi'
-           command: buildAndPush
+           repository: 'modernapi'
+           command: 'buildAndPush'
            Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-           tags:
+           tags: |
              $(Build.BuildId)
-             latest
+             Latest
